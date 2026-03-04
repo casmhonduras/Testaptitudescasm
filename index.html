@@ -220,26 +220,31 @@ text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 /* Botón de salir */
 .exit-btn {
 position: fixed;
-top: 15px;
-left: 15px;
-background: var(--casm-red);
-color: white;
-border: none;
-padding: 8px 15px;
-border-radius: 20px;
+top: 100px;
+right: 16px;
+left: auto;
+background: linear-gradient(135deg, #8B1010, #A71C1C);
+color: #FFFFFF;
+border: 2px solid rgba(255,255,255,0.25);
+padding: 10px 18px;
+border-radius: 50px;
 cursor: pointer;
-font-weight: 700;
-font-size: 0.85rem;
+font-weight: 800;
+font-size: 0.88rem;
+font-family: 'Plus Jakarta Sans', sans-serif;
 z-index: 2000;
-box-shadow: 0 3px 8px rgba(198, 40, 40, 0.4);
+box-shadow: 0 4px 20px rgba(139,16,16,0.55), 0 2px 6px rgba(0,0,0,0.2);
 display: none;
-transition: all 0.3s;
+transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+letter-spacing: 0.3px;
+white-space: nowrap;
 }
 
 .exit-btn:hover {
-background: #B71C1C;
-transform: scale(1.05);
-box-shadow: 0 4px 12px rgba(198, 40, 40, 0.5);
+background: linear-gradient(135deg, #A71C1C, #C62828);
+transform: scale(1.06) translateY(-2px);
+box-shadow: 0 8px 28px rgba(139,16,16,0.7), 0 3px 10px rgba(0,0,0,0.25);
+border-color: rgba(255,255,255,0.4); 40, 40, 0.5);
 }
 
 .exit-btn.visible {
@@ -988,37 +993,7 @@ justify-content: space-between;
 }
 }
 
-/* Logos durante tests */
-.test-logos-container {
-position: fixed;
-bottom: 0;
-left: 0;
-right: 0;
-background: linear-gradient(to top, rgba(245, 246, 232, 0.98) 0%, rgba(245, 246, 232, 0.9) 60%, transparent 100%);
-padding: 15px 30px 10px;
-display: flex;
-justify-content: flex-end;
-align-items: center;
-z-index: 100;
-pointer-events: none;
-box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
-}
 
-.test-logo {
-height: 55px;
-width: auto;
-pointer-events: auto;
-transition: transform 0.3s ease;
-filter: drop-shadow(0 3px 6px rgba(0,0,0,0.15));
-}
-
-.test-logo:hover {
-transform: scale(1.15) translateY(-5px);
-}
-
-#step4 .container {
-padding-bottom: 100px;
-}
 
 /* Resultados */
 .results-container {
@@ -1688,13 +1663,9 @@ width: 60px;
 padding-right: 75px;
 }
 
-.test-logo {
-height: 45px;
-}
 
-.test-logos-container {
-padding: 12px 20px 8px;
-}
+
+
 
 .container {
 padding-top: 110px;
@@ -1706,13 +1677,9 @@ padding-top: 20px;
 }
 
 @media (max-width: 768px) {
-.test-logos-container {
-padding: 12px 20px 8px;
-}
 
-.test-logo {
-height: 50px;
-}
+
+
 
 .header-logo {
 width: 65px;
@@ -2339,55 +2306,7 @@ animation: toastIn 0.4s cubic-bezier(0.4,0,0.2,1) !important;
 
 
 /* TERMS LOGOS BANNER */
-.terms-logos-banner {
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 20px;
-padding: 20px;
-background: linear-gradient(135deg, #051A08 0%, #024034 50%, #035A4A 100%);
-border-radius: 16px;
-margin-bottom: 20px;
-flex-wrap: wrap;
-box-shadow: 0 8px 30px rgba(74,20,140,0.3);
-animation: fadeInUp 0.6s ease-out;
-}
-.terms-logo-img {
-height: 60px;
-width: auto;
-max-width: 80px;
-object-fit: contain;
-filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)) brightness(1.05);
-transition: transform 0.3s;
-border-radius: 6px;
-}
-.terms-logo-img:hover { transform: scale(1.1) rotate(-3deg); }
-.terms-org-info {
-text-align: center;
-flex: 1;
-min-width: 180px;
-}
-.terms-org-title {
-color: #FFD700;
-font-size: clamp(0.9rem, 2.5vw, 1.1rem);
-font-weight: 800;
-margin-bottom: 4px;
-font-family: 'Plus Jakarta Sans', sans-serif;
-}
-.terms-org-sub {
-color: rgba(255,255,255,0.85);
-font-size: clamp(0.7rem, 1.8vw, 0.85rem);
-font-weight: 500;
-margin-bottom: 6px;
-}
-.terms-org-dev {
-color: rgba(255,255,255,0.65);
-font-size: 0.75rem;
-}
-@media (max-width: 480px) {
-.terms-logos-banner { gap: 12px; padding: 15px; }
-.terms-logo-img { height: 46px; }
-}
+/* terms-logos-banner removed — logos now only in header */
 
 
 .terms-welcome-badge {
@@ -2734,14 +2653,7 @@ body.splash-active #floating-notification { display: none !important; }
 }
 
 /* ── Terms logos banner — clear background so logos visible ── */
-.terms-logos-banner {
-  background: linear-gradient(135deg, #FFFFFF 0%, #F8F6EE 50%, #F2EFE4 100%) !important;
-  border: 2px solid rgba(15,74,24,.18) !important;
-  box-shadow: 0 6px 24px rgba(15,74,24,.1) !important;
-}
-.terms-org-title  { color: var(--casm-gold) !important; }
-.terms-org-sub    { color: var(--casm-green-dark) !important; }
-.terms-org-dev    { color: var(--casm-gray) !important; }
+/* terms banner override removed */
 
 /* ── Developer section — same clear dark green ── */
 .developer-section {
@@ -3261,6 +3173,39 @@ body, p, li, span, input, select, button {
 }
 .verify-check-ring { position: relative; }
 
+
+/* Developer info strip (replaces logo banner in terms) */
+.dev-info-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, rgba(15,74,24,.06), rgba(196,117,0,.05));
+  border: 1px solid rgba(15,74,24,.15);
+  border-radius: 12px;
+  margin-bottom: 20px;
+  font-size: 0.82rem;
+  color: var(--casm-gray);
+  font-weight: 500;
+  text-align: center;
+  animation: fadeInUp 0.5s ease-out;
+}
+.dev-info-strip strong { color: var(--casm-green-mid); }
+.dev-info-sep { color: var(--casm-gold); font-weight: 700; }
+
+/* Exit button override from animation system */
+.exit-btn {
+  background: linear-gradient(135deg, #8B1010, #A71C1C) !important;
+  border-radius: 50px !important;
+  box-shadow: 0 4px 20px rgba(139,16,16,.55) !important;
+}
+.exit-btn:hover {
+  transform: scale(1.06) translateY(-2px) !important;
+  box-shadow: 0 8px 28px rgba(139,16,16,.7) !important;
+}
+
 </style>
 </head>
 <body>
@@ -3397,15 +3342,11 @@ body, p, li, span, input, select, button {
 <div class="terms-divider"></div>
 </div>
 
-<!-- LOGOS CASM Y CCM EN TÉRMINOS -->
-<div class="terms-logos-banner">
-  <img src="https://kimi-web-img.moonshot.cn/img/casm.hn/d7589c85b82e2d51d63745bd392cc94bedc22a2e.png" alt="CASM" class="terms-logo-img">
-  <div class="terms-org-info">
-    <div class="terms-org-title">Plataforma de Orientación Vocacional</div>
-    <div class="terms-org-sub">Comisión de Acción Social Menonita · Comité Central Menonita</div>
-    <div class="terms-org-dev">Desarrollado por <strong>Dany Familia Alcante</strong> · 2026</div>
-  </div>
-  <img src="https://kimi-web-img.moonshot.cn/img/i0.wp.com/e94feb26162d53a1fcbabdbc92c15fe4874730be.png" alt="CCM" class="terms-logo-img">
+<!-- Info del desarrollador - sin logos (ya están en el header) -->
+<div class="dev-info-strip">
+  <span>🏛️ Comisión de Acción Social Menonita (CASM) · Comité Central Menonita (CCM)</span>
+  <span class="dev-info-sep">·</span>
+  <span>Desarrollado por <strong>Dany Familia Alcante</strong> · 2026</span>
 </div>
 
 <div class="terms-container">
@@ -3718,10 +3659,7 @@ Continuar a Datos Personales →
 </div>
 </div>
 
-<!-- Solo logo CCM en la parte inferior derecha durante tests -->
-<div class="test-logos-container">
-<img src="https://kimi-web-img.moonshot.cn/img/i0.wp.com/e94feb26162d53a1fcbabdbc92c15fe4874730be.png" alt="Logo CCM" class="test-logo">
-</div>
+
 </section>
 
 <!-- PASO 5: Resultados -->
