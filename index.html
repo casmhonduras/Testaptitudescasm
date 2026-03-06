@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="description" content="Test Vocacional CASM - Descubre tu vocación, capacidad mental y perfil emprendedor">
 <meta name="keywords" content="test vocacional, orientacion vocacional, CASM, Honduras, emprendimiento, CI">
 <meta name="author" content="Dany Familia Alcante - CASM">
@@ -80,6 +80,7 @@ box-sizing: border-box;
 html, body {
 height: 100%;
 overflow-x: hidden;
+max-width: 100%;
 }
 
 body {
@@ -276,10 +277,12 @@ padding-top: 20px;
 .section {
 display: none;
 opacity: 0;
-transform: translateX(50px);
-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+transform: translateY(12px);
+transition: opacity 0.4s ease, transform 0.4s ease;
 width: 100%;
+max-width: 100%;
 flex: 1;
+overflow-x: hidden;
 overflow-y: auto;
 }
 
@@ -287,23 +290,22 @@ overflow-y: auto;
 display: flex;
 flex-direction: column;
 opacity: 1;
-transform: translateX(0);
-animation: slideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+transform: translateY(0);
+animation: pageEnterY 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@keyframes slideIn {
-0% { opacity: 0; transform: translateX(50px) scale(0.95); }
-50% { transform: translateX(-10px) scale(1.02); }
-100% { opacity: 1; transform: translateX(0) scale(1); }
+@keyframes pageEnterY {
+0% { opacity: 0; transform: translateY(16px); }
+100% { opacity: 1; transform: translateY(0); }
 }
 
 .section.exiting {
-animation: slideOut 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+animation: pageExitY 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-@keyframes slideOut {
-0% { opacity: 1; transform: translateX(0) scale(1); }
-100% { opacity: 0; transform: translateX(-50px) scale(0.95); }
+@keyframes pageExitY {
+0% { opacity: 1; transform: translateY(0); }
+100% { opacity: 0; transform: translateY(-12px); }
 }
 
 /* Cards con bordes intensos */
@@ -2133,7 +2135,7 @@ border-radius: 4px 0 0 4px;
 }
 .option.selected::after, .option:hover::after { transform: scaleY(1); }
 .option:hover {
-transform: translateX(10px) !important;
+transform: translateX(4px) !important;
 border-color: var(--casm-green) !important;
 background: linear-gradient(90deg, rgba(27,94,32,0.06), rgba(255,255,255,0.9)) !important;
 box-shadow: 0 4px 20px rgba(27,94,32,0.12) !important;
@@ -2141,7 +2143,7 @@ box-shadow: 0 4px 20px rgba(27,94,32,0.12) !important;
 .option.selected {
 background: linear-gradient(90deg, rgba(27,94,32,0.12), rgba(255,255,255,0.95)) !important;
 border-color: var(--casm-green) !important;
-transform: scale(1.01) !important;
+transform: none !important;
 }
 
 /* ═══ BUTTONS UPGRADE ═══ */
@@ -2198,7 +2200,8 @@ border-radius: 14px !important;
 transition: transform 0.3s, box-shadow 0.3s !important;
 }
 .result-bar-item:hover {
-transform: translateX(10px) scale(1.01) !important;
+transform: translateY(-2px) !important;
+box-shadow: 0 4px 16px rgba(10,46,12,0.10) !important;
 }
 .result-bar-visual {
 height: 44px !important;
@@ -3313,6 +3316,31 @@ button.exit-btn, button.exit-btn:hover, button.exit-btn:active, button.exit-btn:
     transform: none;
     font-size: 16px; /* Prevent iOS zoom */
   }
+}
+
+/* ═══════════════════════════════════════
+   MOBILE OVERFLOW & LAYOUT FIX
+═══════════════════════════════════════ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/* Prevent any element from causing horizontal scroll */
+.section, .container, .card, .question-container,
+.options, .option, .confidentiality-banner,
+.result-bar-container, .test-selection, .test-card,
+.btn-group, .form-grid, .gender-selection {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+/* On mobile: disable translateX hover effects that cause overflow */
+@media (max-width: 600px) {
+  .option:hover   { transform: none !important; }
+  .option.selected { transform: none !important; }
+  .result-bar-item:hover { transform: none !important; box-shadow: none !important; }
+  .card:hover     { transform: none !important; }
+  .test-card:hover { transform: translateY(-3px) !important; }
+  /* Simplify section transitions on mobile */
+  .section.active { animation: fadeIn 0.3s ease !important; }
 }
 
 /* ═══════════════════════════════════════
