@@ -3587,7 +3587,7 @@ body.on-splash #global-exit-btn { display: none !important; }
 
 <div class="terms-section">
 <h3><span class="terms-icon">⚖️</span> Descargo de Responsabilidad</h3>
-<p><strong>CASM (Comisión de Acción Social Menonita), CCM (Comité Central Menonita) ni el desarrollador Dany Familia Alcante se hacen responsables</strong> de las decisiones que el usuario tome basándose únicamente en los resultados de estos test. Estas herramientas son orientadoras y deben complementarse con:</p>
+<p><strong>CASM (Comisión de Acción Social Menonita), CCM (Comité Central Menonita) ni el desarrollador DFA se hacen responsables</strong> de las decisiones que el usuario tome basándose únicamente en los resultados de estos test. Estas herramientas son orientadoras y deben complementarse con:</p>
 <ul>
 <li>Asesoría profesional especializada</li>
 <li>Investigación personal sobre carreras/negocios</li>
@@ -3607,7 +3607,7 @@ body.on-splash #global-exit-btn { display: none !important; }
 <li>Aceptas que los resultados son orientativos</li>
 <li>Te comprometes a responder con sinceridad</li>
 <li>Entiendes que CASM, CCM ni el desarrollador determinan tu futuro, solo te ayudan a explorar opciones</li>
-<li>Entiendo que <strong>yo soy el único responsable</strong> de mis decisiones, no CASM, ni CCM, ni el desarrollador Dany Familia Alcante</li>
+<li>Entiendo que <strong>yo soy el único responsable</strong> de mis decisiones, no CASM, ni CCM, ni el desarrollador DFA</li>
 </ul>
 </div>
 </div>
@@ -3624,7 +3624,7 @@ body.on-splash #global-exit-btn { display: none !important; }
 
 <div class="terms-checkbox">
 <input type="checkbox" id="accept-terms" onchange="toggleTermsButton()">
-<label for="accept-terms">He leído, comprendo y acepto los términos anteriores. Me comprometo a responder con sinceridad. Entiendo que estos tests solo me orientan, pero <strong>las decisiones las tomo yo</strong> y soy responsable de ellas. CASM, CCM y el desarrollador no se hacen responsables de lo que yo decida hacer con estos resultados.</label>
+<label for="accept-terms">He leído y acepto los términos y condiciones descritos anteriormente.</label>
 </div>
 
 <div class="alert alert-error" id="error-msg-terms">
@@ -3973,7 +3973,7 @@ Considerando mercado local, recursos disponibles, cultura emprendedora y oportun
 <div class="disclaimer-box">
 <h4>⚠️ Importante - Lee con atención</h4>
 <p>
-<strong>Este test es una guía, no una verdad absoluta.</strong> CASM, CCM y Dany Familia Alcante (el desarrollador) <strong>no se hacen responsables</strong> de las decisiones que tomes basándote en estos resultados.
+<strong>Este test es una guía, no una verdad absoluta.</strong> CASM, CCM y DFA (el desarrollador) <strong>no se hacen responsables</strong> de las decisiones que tomes basándote en estos resultados.
 <br><br>
 <strong>Recuerda:</strong> Estos resultados solo te orientan, pero <strong>tú decides tu futuro</strong>. No dejes que un test defina lo que puedes o no puedes hacer. Te sugerimos hablar con orientadores profesionales, investigar por tu cuenta y reflexionar antes de tomar decisiones importantes.
 <br><br>
@@ -5532,7 +5532,7 @@ function generatePDF() {
     // Pie de página
     doc.setFontSize(8);
     doc.setTextColor(150, 150, 150);
-    doc.text('© 2026 CASM - Desarrollado por Dany Familia Alcante', 105, 285, { align: 'center' });
+    doc.text('© 2026 CASM - Desarrollado por DFA', 105, 285, { align: 'center' });
     
     // Guardar
     doc.save(`Resultados_CASM_${userData.name.replace(/\s+/g, '_')}.pdf`);
@@ -5569,7 +5569,7 @@ function sendEmailResults() {
     }
 
     body += `\n⚠️ Este es un test orientativo. CASM no se hace responsable de decisiones basadas en estos resultados.\n`;
-    body += `\n© 2026 CASM - Desarrollado por Dany Familia Alcante`;
+    body += `\n© 2026 CASM - Desarrollado por DFA`;
 
     const mailtoLink = `mailto:${userData.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
